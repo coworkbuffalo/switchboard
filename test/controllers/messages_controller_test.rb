@@ -1,9 +1,13 @@
 require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "requires token" do
+    post :create, format: :xml
+    assert_response :unauthorized
   end
 
+  test "replies with token" do
+    post :create, format: :xml, token:  "deadbeef"
+    assert_response :success
+  end
 end
