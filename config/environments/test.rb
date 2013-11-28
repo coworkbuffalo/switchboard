@@ -33,4 +33,7 @@ Switchboard::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Thanks, rails_12factor
+  config.log_level = :warn
 end

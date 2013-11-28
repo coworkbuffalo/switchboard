@@ -4,8 +4,8 @@ class MessagesController < ApplicationController
   before_filter :verify_token
 
   def create
-    member = Member.find_from_number!(params[:From])
-    logger.info "[SWITCHBOARD] #{member.name} has asked: #{params[:Body]}"
+    @member = Member.find_from_number!(params[:From])
+    @knock = Knock.new(params[:Body])
     respond_to(&:xml)
   end
 

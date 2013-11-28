@@ -7,7 +7,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "replies successfully from valid number" do
-    post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}"
+    post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}", Body: "#unlock"
     assert_response :success
   end
 
