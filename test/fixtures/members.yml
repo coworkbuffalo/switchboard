@@ -1,9 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bill:
+  name: Buffalo Bill
+  phone_number: 15551112222
 
-one:
-  name: MyString
-  phone_number: MyString
-
-two:
-  name: MyString
-  phone_number: MyString
+jill:
+  name: Buffalo Jill
+  phone_number: 15553334444
