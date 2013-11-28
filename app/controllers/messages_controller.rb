@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   def create
     @member = Member.find_from_number!(params[:From])
     @knock = Knock.new(params[:Body])
+    @knock.notify! if @knock.valid?
     respond_to(&:xml)
   end
 

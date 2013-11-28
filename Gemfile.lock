@@ -59,8 +59,11 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.25.1)
     minitest (4.7.5)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.2)
     pg (0.17.0)
     phony (1.9.0)
@@ -135,6 +138,7 @@ DEPENDENCIES
   bitters
   coffee-rails (~> 4.0.0)
   jquery-rails
+  mocha
   pg
   phony_rails
   rails (= 4.0.1)

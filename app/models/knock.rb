@@ -15,4 +15,16 @@ class Knock
   def lock?
     @body == LOCK_TAG
   end
+
+  def valid?
+    unlock? || lock?
+  end
+
+  def notify!
+    Switchboard.twilio_client.account.messages.create(
+      from: Switchboard.twilio_from_number,
+      to:   Switchboard.twilio_to_number,
+      body: @body
+    )
+  end
 end

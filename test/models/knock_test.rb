@@ -16,4 +16,13 @@ class KnockTest < ActiveSupport::TestCase
   test "not locked without correct tag" do
     assert ! Knock.new("#unlock").lock?
   end
+
+  test "includes valid tag" do
+    assert Knock.new("#lock").valid?
+    assert Knock.new("#unlock").valid?
+  end
+
+  test "invalid without tag" do
+    assert ! Knock.new("huh?").valid?
+  end
 end
