@@ -1,6 +1,6 @@
 class Knock
-  UNLOCK_TAG = "#unlock"
-  LOCK_TAG   = "#lock"
+  UNLOCK_TAG = "unlock"
+  LOCK_TAG   = "lock"
 
   TAGS = [UNLOCK_TAG, LOCK_TAG]
 

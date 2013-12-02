@@ -8,7 +8,7 @@ class MessagesControllerTest < ActionController::TestCase
 
   test "replies successfully from valid number" do
     Twilio::REST::Messages.any_instance.expects(:create)
-    post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}", Body: "#unlock"
+    post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}", Body: "unlock"
     assert_response :success
   end
 

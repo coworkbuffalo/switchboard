@@ -2,24 +2,24 @@ require 'test_helper'
 
 class KnockTest < ActiveSupport::TestCase
   test "unlock if includes tag" do
-    assert Knock.new("#unlock").unlock?
+    assert Knock.new("unlock").unlock?
   end
 
   test "not unlocked without correct tag" do
-    assert ! Knock.new("#lock").unlock?
+    assert ! Knock.new("lock").unlock?
   end
 
   test "lock if includes tag" do
-    assert Knock.new("#lock").lock?
+    assert Knock.new("lock").lock?
   end
 
   test "not locked without correct tag" do
-    assert ! Knock.new("#unlock").lock?
+    assert ! Knock.new("unlock").lock?
   end
 
   test "includes valid tag" do
-    assert Knock.new("#lock").valid?
-    assert Knock.new("#unlock").valid?
+    assert Knock.new("lock").valid?
+    assert Knock.new("unlock").valid?
   end
 
   test "invalid without tag" do
