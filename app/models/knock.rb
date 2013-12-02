@@ -24,7 +24,7 @@ class Knock
     Switchboard.twilio_client.account.messages.create(
       from: Switchboard.twilio_from_number,
       to:   Switchboard.twilio_to_number,
-      body: @body
+      body: "##{@body.gsub("#", "")}"
     )
   end
 end
