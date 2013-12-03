@@ -1,8 +1,9 @@
 class Knock
   UNLOCK_TAG = "unlock"
   LOCK_TAG   = "lock"
+  TOGGLE_TAG = "toggle"
 
-  TAGS = [UNLOCK_TAG, LOCK_TAG]
+  TAGS = [UNLOCK_TAG, LOCK_TAG, TOGGLE_TAG]
 
   def initialize(body)
     @body = body
@@ -16,8 +17,12 @@ class Knock
     @body == LOCK_TAG
   end
 
+  def toggle?
+    @body == TOGGLE_TAG
+  end
+
   def valid?
-    unlock? || lock?
+    unlock? || lock? || toggle?
   end
 
   def notify!

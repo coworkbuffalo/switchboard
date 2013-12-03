@@ -17,9 +17,18 @@ class KnockTest < ActiveSupport::TestCase
     assert ! Knock.new("unlock").lock?
   end
 
+  test "toggle if includes tag" do
+    assert Knock.new("toggle").toggle?
+  end
+
+  test "not toggle without correct tag" do
+    assert ! Knock.new("unlock").toggle?
+  end
+
   test "includes valid tag" do
     assert Knock.new("lock").valid?
     assert Knock.new("unlock").valid?
+    assert Knock.new("toggle").valid?
   end
 
   test "invalid without tag" do
