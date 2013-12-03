@@ -65,6 +65,9 @@ GEM
     mocha (0.14.0)
       metaclass (~> 0.0.1)
     multi_json (1.8.2)
+    neat (1.5.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
     pg (0.17.0)
     phony (1.9.0)
     phony_rails (0.4.2)
@@ -139,6 +142,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jquery-rails
   mocha
+  neat
   pg
   phony_rails
   rails (= 4.0.1)

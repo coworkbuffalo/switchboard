@@ -1,29 +1,22 @@
-<h1>Members</h1>
+<section class="actions">
+  <%= link_to 'New Member', new_member_path %>
+</section>
 
-<table>
-  <thead>
+<section class="members">
+  <table>
+  <% @members.each do |member| %>
     <tr>
-      <th>Name</th>
-      <th>Phone number</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <td>
+        <%= link_to member.name, member %>
+      </td>
+      <td>
+        <%= link_to member.phone_number, member %>
+      </td>
     </tr>
-  </thead>
 
-  <tbody>
-    <% @members.each do |member| %>
-      <tr>
-        <td><%= member.name %></td>
-        <td><%= member.phone_number %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Member', new_member_path %>
+    <%#= link_to 'Show', member %>
+    <%#= link_to 'Edit', edit_member_path(member) %>
+    <%#= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  </table>
+</section>

@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'sass-rails', '~> 4.0.0'
+gem 'neat'
 gem 'bitters'
 
 gem 'rails_12factor'
