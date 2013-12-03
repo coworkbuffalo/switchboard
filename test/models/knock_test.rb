@@ -34,4 +34,8 @@ class KnockTest < ActiveSupport::TestCase
   test "invalid without tag" do
     assert ! Knock.new("huh?").valid?
   end
+
+  test "knocks are downcased" do
+    assert Knock.new("Lock").valid?
+  end
 end

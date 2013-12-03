@@ -6,7 +6,7 @@ class Knock
   TAGS = [UNLOCK_TAG, LOCK_TAG, TOGGLE_TAG]
 
   def initialize(body)
-    @body = body
+    @body = body.downcase
   end
 
   def unlock?
