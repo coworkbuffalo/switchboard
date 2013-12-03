@@ -2,11 +2,9 @@
 <Response>
   <Message>
     <% if @knock.unlock? %>
-      The door is now unlocked. Welcome to CoworkBuffalo, <%= @member.name %>!
+      The door will unlock in a moment! Please open the door when you hear it click. Welcome to CoworkBuffalo, <%= @member.name %>!
     <% elsif @knock.lock? %>
       Thanks for visiting CoworkBuffalo! The door is now locked.
-    <% elsif @knock.toggle? %>
-      The door will unlock in a moment! Welcome to CoworkBuffalo, <%= @member.name %>!
     <% else %>
       Sorry, I didn't understand that. Please send another SMS with one of the following choices: <%= Knock::TAGS.join(', ') %>
     <% end %>
