@@ -9,17 +9,31 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-#nav {
+nav.main {
   ul {
     background: #7EBEA3;
     text-align: center;
 
     li {
-      padding: 30px;
-      font-weight: 300;
-      font-size: 30px;
+      a, a:visited {
+        padding: 30px;
+        font-weight: 300;
+        font-size: 30px;
+        color: #fff;
+        display: block;
+        @include transition (all 0.5s ease-in-out);
+      }
+
+      a:hover {
+        background: #E0DBA4;
+        color: #000;
+        -webkit-transition: background 0.5s;
+      }
       display: inline-block;
-      color: #fff;
+    }
+
+    .active {
+      background: #53A08E;
     }
   }
 }

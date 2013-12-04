@@ -10,12 +10,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header id="nav">
+  <nav class="main">
     <ul>
-      <li>Entries</li>
-      <li>Members</li>
-      <li>Messages</li>
-      <li>WeMo</li>
+      <li><a href="#">Entries</a></li><li><%= nav_link_to "Members", members_path %></li><li><a href="#">Messages</a></li><li><a href="#">WeMo</a></li>
     </ul>
   </header>
 
