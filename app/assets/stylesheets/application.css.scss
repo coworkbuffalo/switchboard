@@ -3,8 +3,6 @@
 @import "bitters/bitters";
 @import "neat/neat";
 
-$max-width: em(544);
-
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -38,10 +36,6 @@ nav.main {
   }
 }
 
-section {
-  @include outer-container;
-}
-
 nav.actions {
   text-align: center;
 
@@ -51,7 +45,10 @@ nav.actions {
   }
 }
 
-.members {
+section.members {
+  $max-width: em(544);
+  @include outer-container;
+
   tr:hover {
     background: #A9CBA6;
     color: #fff;
@@ -89,6 +86,15 @@ form {
     input[type='submit'] {
       @include button(shiny, red);
     }
+  }
+}
+
+section.messages {
+  $max-width: em(1088);
+  @include outer-container;
+
+  td {
+    padding-right: 0.75em;
   }
 }
 

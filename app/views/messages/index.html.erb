@@ -1,0 +1,30 @@
+<section class="messages">
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Status</th>
+      <th>Body</th>
+    </tr>
+  <% @messages.each do |message| %>
+    <tr>
+      <td>
+        <%= DateTime.parse(message.date_sent).in_time_zone("Eastern Time (US & Canada)").to_formatted_s(:short) %>
+      </td>
+      <td>
+        <%= message.from.phony_formatted(spaces: '-') %>
+      </td>
+      <td>
+        <%= message.to.phony_formatted(spaces: '-') %>
+      </td>
+      <td>
+        <%= message.status %>
+      </td>
+      <td>
+        <%= message.body %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</section>
