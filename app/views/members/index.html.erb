@@ -10,7 +10,7 @@
         <%= link_to member.name, edit_member_path(member) %>
       </td>
       <td>
-        <%= link_to member.phone_number, edit_member_path(member) %>
+        <%= link_to member.phone_number.phony_formatted(spaces: '-'), edit_member_path(member) %>
       </td>
     </tr>
   <% end %>
