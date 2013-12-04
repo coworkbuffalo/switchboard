@@ -1,15 +1,10 @@
 class MembersController < ApplicationController
   http_basic_authenticate_with name: "coworkbuffalo", password: Switchboard.admin_password
 
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:edit, :update, :destroy]
 
-  # GET /members
   def index
     @members = Member.all
-  end
-
-  # GET /members/1
-  def show
   end
 
   # GET /members/new
@@ -26,7 +21,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to @member, notice: 'Member was successfully created.'
+      redirect_to members_url, notice: 'Member was successfully created.'
     else
       render action: 'new'
     end
@@ -35,7 +30,7 @@ class MembersController < ApplicationController
   # PATCH/PUT /members/1
   def update
     if @member.update(member_params)
-      redirect_to @member, notice: 'Member was successfully updated.'
+      redirect_to members_url, notice: 'Member was successfully updated.'
     else
       render action: 'edit'
     end

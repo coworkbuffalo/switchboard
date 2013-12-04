@@ -1,22 +1,18 @@
-<section class="actions">
+<nav class="actions">
   <%= link_to 'New Member', new_member_path %>
-</section>
+</nav>
 
 <section class="members">
   <table>
   <% @members.each do |member| %>
     <tr>
       <td>
-        <%= link_to member.name, member %>
+        <%= link_to member.name, edit_member_path(member) %>
       </td>
       <td>
-        <%= link_to member.phone_number, member %>
+        <%= link_to member.phone_number, edit_member_path(member) %>
       </td>
     </tr>
-
-    <%#= link_to 'Show', member %>
-    <%#= link_to 'Edit', edit_member_path(member) %>
-    <%#= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   </table>
 </section>

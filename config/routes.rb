@@ -1,5 +1,5 @@
 Switchboard::Application.routes.draw do
-  resources :members
+  resources :members, except: :show
 
   resources :messages, only: :create
 
