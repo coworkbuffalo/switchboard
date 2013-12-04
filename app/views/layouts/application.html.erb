@@ -14,9 +14,12 @@
     <ul>
       <li><a href="#">Entries</a></li><li><%= nav_link_to "Members", members_path %></li><li><a href="#">Messages</a></li><li><a href="#">WeMo</a></li>
     </ul>
-  </header>
+  </nav>
 
 <%= yield %>
 
+  <footer>
+    <%= link_to "Home", root_path %>
+  </footer>
 </body>
 </html>

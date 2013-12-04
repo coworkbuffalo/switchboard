@@ -10,8 +10,8 @@ body {
 }
 
 nav.main {
+  background: #7EBEA3;
   ul {
-    background: #7EBEA3;
     text-align: center;
 
     li {
@@ -89,5 +89,21 @@ form {
     input[type='submit'] {
       @include button(shiny, red);
     }
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+
+  $footer-size: 50px;
+  a {
+    width: $footer-size;
+    height: $footer-size;
+    text-indent: -9999px;
+    background: url("/assets/switchboard.svg") no-repeat;
+    background-size: $footer-size;
+    display: block;
   }
 }
