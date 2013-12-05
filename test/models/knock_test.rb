@@ -29,4 +29,8 @@ class KnockTest < ActiveSupport::TestCase
   test "knocks are downcased" do
     assert Knock.new("Lock").valid?
   end
+
+  test "knocks are stripped" do
+    assert Knock.new(" unlock").valid?
+  end
 end

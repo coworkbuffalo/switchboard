@@ -5,7 +5,7 @@ class Knock
   TAGS = [UNLOCK_TAG, LOCK_TAG]
 
   def initialize(body)
-    @body = body.downcase
+    @body = body.downcase.strip
   end
 
   def unlock?
