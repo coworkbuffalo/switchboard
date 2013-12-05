@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  http_basic_authenticate_with name: "coworkbuffalo", password: Switchboard.admin_password
+  require_authentication!
 
   before_action :set_member, only: [:edit, :update, :destroy]
 

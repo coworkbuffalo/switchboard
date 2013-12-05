@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
+  require_authentication! except: :create
   protect_from_forgery except: :create
-
   before_filter :verify_token, only: :create
 
   def create
