@@ -12,14 +12,13 @@
 <body>
   <nav class="main">
     <ul>
-      <li><a href="#">Entries</a></li><li><%= nav_link_to "Members", members_path %></li><li><%= nav_link_to "Messages", messages_path %></li><li><%= nav_link_to "WeMo", wemo_path %></li>
+      <li><%= link_to "Home", root_path, class: "home" %></li>
+      <li><a href="#">Entries</a></li>
+      <li><%= nav_link_to "Members", members_path %></li>
+      <li><%= nav_link_to "Messages", messages_path %></li>
+      <li><%= nav_link_to "WeMo", wemo_path %></li>
     </ul>
   </nav>
-
 <%= yield %>
-
-  <footer>
-    <%= link_to "Home", root_path %>
-  </footer>
 </body>
 </html>

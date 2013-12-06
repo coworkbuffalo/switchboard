@@ -13,6 +13,9 @@ nav.main {
     text-align: center;
 
     li {
+      display: inline-block;
+      vertical-align: middle;
+
       a, a:visited {
         padding: 30px;
         font-weight: 300;
@@ -27,7 +30,18 @@ nav.main {
         color: #000;
         -webkit-transition: background 0.5s;
       }
-      display: inline-block;
+
+      $home-size: 50px;
+
+      a.home {
+        padding: 0;
+        width: $home-size;
+        height: $home-size;
+        text-indent: -9999px;
+        background: url("/switchboard.svg") no-repeat;
+        background-size: $home-size;
+        display: block;
+      }
     }
 
     .active {
@@ -101,20 +115,4 @@ section.messages {
 section.wemo {
   $max-width: em(544);
   @include outer-container;
-}
-
-footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-
-  $footer-size: 50px;
-  a {
-    width: $footer-size;
-    height: $footer-size;
-    text-indent: -9999px;
-    background: url("/switchboard.svg") no-repeat;
-    background-size: $footer-size;
-    display: block;
-  }
 }
