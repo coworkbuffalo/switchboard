@@ -112,6 +112,16 @@ section.messages {
   }
 }
 
+section.entries {
+  $max-width: em(544);
+  @include outer-container;
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 section.wemo {
   $max-width: em(544);
   @include outer-container;

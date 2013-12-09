@@ -9,6 +9,12 @@ class Entry < ActiveRecord::Base
   validates :formatted_body, inclusion: {in: TAGS}
   after_create :notify!
 
+  def self.by_day
+    includes(:member).order(created_at: :desc).group_by do |entry|
+      entry.created_at.in_time_zone("Eastern Time (US & Canada)").to_date
+    end
+  end
+
   def unlock?
     formatted_body == UNLOCK_TAG
   end

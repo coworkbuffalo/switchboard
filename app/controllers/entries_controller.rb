@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
   end
 
   def index
+    @entries_by_day = Entry.by_day
   end
 
   private

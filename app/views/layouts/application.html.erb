@@ -13,7 +13,7 @@
   <nav class="main">
     <ul>
       <li><%= link_to "Home", root_path, class: "home" %></li>
-      <li><a href="#">Entries</a></li>
+      <li><%= nav_link_to "Entries", entries_path %></li>
       <li><%= nav_link_to "Members", members_path %></li>
       <li><%= nav_link_to "Messages", messages_path %></li>
       <li><%= nav_link_to "WeMo", wemo_path %></li>

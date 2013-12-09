@@ -10,7 +10,7 @@
   <% @messages.each do |message| %>
     <tr>
       <td>
-        <%= DateTime.parse(message.date_sent).in_time_zone("Eastern Time (US & Canada)").to_formatted_s(:short) %>
+        <%= easternify(DateTime.parse(message.date_sent), :short) %>
       </td>
       <td>
         <%= message.from.phony_formatted(spaces: '-') %>
