@@ -1,15 +1,12 @@
 bill_unlock:
   member: bill
-  original_body: "Unlock"
-  formatted_body: "unlock"
+  body: "Unlock"
   created_at: <%= Date.today - 5.minutes %>
 bill_lock:
   member: bill
-  original_body: " Lock"
-  formatted_body: "lock"
+  body: " Lock"
   created_at: <%= Date.today - 4.minutes %>
 jill_lock:
   member: jill
-  original_body: "unLock"
-  formatted_body: "unlock"
+  body: "unLock"
   created_at: <%= Date.today - 3.minutes %>

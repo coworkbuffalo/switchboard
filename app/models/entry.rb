@@ -1,13 +1,17 @@
 class Entry < ActiveRecord::Base
   belongs_to :member
 
-  UNLOCK_TAG = "unlock"
-  LOCK_TAG   = "lock"
-  TAGS = [UNLOCK_TAG, LOCK_TAG]
+  ACTIONS = {
+    'lock'   => /\A\s*lock/i,
+    'unlock' => /\A\s*unlock/i
+  }
 
-  before_validation :format!
-  validates :formatted_body, inclusion: {in: TAGS}
+  validates :action, inclusion: {in: ACTIONS}
   after_create :notify!
+
+  def self.actions
+    ACTIONS.keys
+  end
 
   def self.by_day
     includes(:member).order(created_at: :desc).group_by do |entry|
@@ -15,25 +19,25 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  def action
+    attributes[:action] ||= ACTIONS.find { |_, regex| body =~ regex }.try :first
+  end
+
   def unlock?
-    formatted_body == UNLOCK_TAG
+    action == 'unlock'
   end
 
   def lock?
-    formatted_body == LOCK_TAG
+    action == 'lock'
   end
 
   private
-
-  def format!
-    self.formatted_body = original_body.downcase.strip
-  end
 
   def notify!
     Switchboard.twilio_client.account.messages.create(
       from: Switchboard.twilio_from_number,
       to:   Switchboard.twilio_to_number,
-      body: "##{formatted_body.gsub("#", "")}"
+      body: "##{action}"
     )
   end
 end
