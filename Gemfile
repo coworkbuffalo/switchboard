@@ -19,6 +19,4 @@ gem 'unicorn'
 gem 'phony_rails'
 gem 'twilio-ruby'
 
-group :test do
-  gem 'mocha', require: false
-end
+gem 'mocha', require: false
