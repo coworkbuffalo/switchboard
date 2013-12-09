@@ -7,5 +7,5 @@ Switchboard::Application.routes.draw do
 
   get "wemo", to: "wemo#show"
 
-  root to: 'members#index'
+  root to: 'entries#index'
 end
