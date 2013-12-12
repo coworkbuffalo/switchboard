@@ -2,7 +2,7 @@
 <Response>
   <Message>
     <% if @entry.unlock? %>
-      The door will unlock in a moment! Please open the door when you hear it click. Welcome to CoworkBuffalo, <%= @member.name %>!
+      The door will unlock in a moment! Please open the door when you hear it click. Welcome back to CoworkBuffalo, <%= @member.name %>!
     <% elsif @entry.lock? %>
       Thanks for visiting CoworkBuffalo! The door is now locked.
     <% else %>
