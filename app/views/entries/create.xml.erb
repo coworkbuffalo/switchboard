@@ -6,7 +6,7 @@
     <% elsif @entry.lock? %>
       Thanks for visiting CoworkBuffalo! The door is now locked.
     <% else %>
-      Sorry, I didn't understand that. Please send another SMS with one of the following choices: <%= Entry::TAGS.join(', ') %>
+      Sorry, I didn't understand that. Please send another SMS with one of the following choices: <%= Entry.actions.join(', ') %>
     <% end %>
   </Message>
 </Response>

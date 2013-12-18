@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
 
   def create
     @member = Member.find_from_number!(params[:From])
-    @entry = @member.entries.new(original_body: params[:Body])
+    @entry = @member.entries.new(body: params[:Body])
     @entry.save
     respond_to(&:xml)
   end
