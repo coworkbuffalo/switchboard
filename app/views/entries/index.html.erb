@@ -3,7 +3,7 @@
     <h2><%= date.to_formatted_s(:long) %></h2>
     <% entries.each do |entry| %>
       <p>
-        <strong><%= easternify(entry.created_at, :time) %></strong>: <%= entry.member.name %> <%= entry.formatted_body %>ed the door.
+        <strong><%= easternify(entry.created_at, :time) %></strong>: <%= entry.member.name %> <%= entry.action %>ed the door.
       </p>
     <% end %>
   <% end %>
