@@ -6,7 +6,8 @@ class Entry < ActiveRecord::Base
     'unlock' => /\A\s*u(nlock)?/i
   }
 
-  validates :action, inclusion: {in: ACTIONS}
+  before_validation :extract_action
+  validates :action, inclusion: {in: ACTIONS.keys}
   after_create :notify!
 
   def self.actions
@@ -19,19 +20,19 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  def action
-    attributes[:action] ||= ACTIONS.find { |_, regex| body =~ regex }.try :first
-  end
-
   def unlock?
-    action == 'unlock'
+    extract_action == 'unlock'
   end
 
   def lock?
-    action == 'lock'
+    extract_action == 'lock'
   end
 
   private
+
+  def extract_action
+    self.action ||= ACTIONS.find { |_, regex| body =~ regex }.try :first
+  end
 
   def notify!
     Switchboard.twilio_client.account.messages.create(
