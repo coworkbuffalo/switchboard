@@ -37,4 +37,9 @@ class EntryTest < ActiveSupport::TestCase
   test "not locked without correct tag" do
     assert ! Entry.new(body: "unlock").lock?
   end
+
+  test "one letter entries are allowed" do
+    assert Entry.new(body: "L").lock?
+    assert Entry.new(body: "U").unlock?
+  end
 end

@@ -2,8 +2,8 @@ class Entry < ActiveRecord::Base
   belongs_to :member
 
   ACTIONS = {
-    'lock'   => /\A\s*lock/i,
-    'unlock' => /\A\s*unlock/i
+    'lock'   => /\A\s*l(ock)?/i,
+    'unlock' => /\A\s*u(nlock)?/i
   }
 
   validates :action, inclusion: {in: ACTIONS}
