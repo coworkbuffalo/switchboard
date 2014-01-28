@@ -1,3 +1,5 @@
+require 'rest-client'
+
 class Entry < ActiveRecord::Base
   belongs_to :member
 
@@ -35,10 +37,6 @@ class Entry < ActiveRecord::Base
   end
 
   def notify!
-    Switchboard.twilio_client.account.messages.create(
-      from: Switchboard.twilio_from_number,
-      to:   Switchboard.twilio_to_number,
-      body: "##{action}"
-    )
+    RestClient.post "http://#{ENV["DOOR_URL"]}/#{action}", token: ENV["DOOR_TOKEN"]
   end
 end

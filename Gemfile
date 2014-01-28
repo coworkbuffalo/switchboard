@@ -19,4 +19,6 @@ gem 'unicorn'
 gem 'phony_rails'
 gem 'twilio-ruby'
 
+gem 'rest-client'
+
 gem 'mocha', require: false
