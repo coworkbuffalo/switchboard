@@ -51,4 +51,9 @@ class EntryTest < ActiveSupport::TestCase
     unlock.save
     assert_equal "unlock", unlock.reload[:action]
   end
+
+  test "account for autocorrecting" do
+    lock = Entry.new(body: "I")
+    assert lock.unlock?
+  end
 end

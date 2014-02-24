@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
 
   ACTIONS = {
     'lock'   => /\A\s*l(ock)?/i,
-    'unlock' => /\A\s*u(nlock)?/i
+    'unlock' => /\A\s*(u|i)(nlock)?/i
   }
 
   before_validation :extract_action
