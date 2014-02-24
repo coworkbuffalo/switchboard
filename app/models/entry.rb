@@ -38,7 +38,7 @@ class Entry < ActiveRecord::Base
 
   def notify!
     RestClient.post "http://#{ENV["DOOR_USER"]}:#{ENV["DOOR_TOKEN"]}@#{ENV["DOOR_URL"]}/api/device/CoworkBuffalo", switch: "on"
-    sleep 2
+    sleep 3
     RestClient.post "http://#{ENV["DOOR_USER"]}:#{ENV["DOOR_TOKEN"]}@#{ENV["DOOR_URL"]}/api/device/CoworkBuffalo", switch: "off"
   end
 end
