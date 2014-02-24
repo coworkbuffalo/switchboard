@@ -39,7 +39,7 @@ class EntryTest < ActiveSupport::TestCase
   end
 
   test "one letter entries are allowed" do
-    Twilio::REST::Messages.any_instance.stubs(:create)
+    RestClient.stubs(:post)
 
     lock = Entry.new(body: "L")
     assert lock.lock?

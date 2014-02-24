@@ -7,13 +7,13 @@ class EntriesControllerTest < ActionController::TestCase
   end
 
   test "replies successfully from valid number" do
-    Twilio::REST::Messages.any_instance.expects(:create)
+    RestClient.stubs(:post)
     post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}", Body: "unlock"
     assert_response :success
   end
 
   test "ignores pinging IFTTT with invalid body" do
-    Twilio::REST::Messages.any_instance.expects(:create).never
+    RestClient.stubs(:post)
     post :create, format: :xml, token: "deadbeef", From: "+#{members(:bill).phone_number}", Body: "foobar"
     assert_response :success
   end
