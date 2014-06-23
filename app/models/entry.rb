@@ -17,7 +17,7 @@ class Entry < ActiveRecord::Base
   end
 
   def self.by_day
-    includes(:member).order(created_at: :desc).group_by do |entry|
+    includes(:member).order(created_at: :desc).limit(100).group_by do |entry|
       entry.created_at.in_time_zone("Eastern Time (US & Canada)").to_date
     end
   end
