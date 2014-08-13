@@ -37,6 +37,6 @@ class Entry < ActiveRecord::Base
   end
 
   def notify!
-    RestClient.post "http://#{ENV["DOOR_USER"]}:#{ENV["DOOR_TOKEN"]}@#{ENV["DOOR_URL"]}/api/device/CoworkBuffalo", state: "blink", delay: 4
+    RestClient.post "http://#{ENV["DOOR_USER"]}:#{ENV["DOOR_TOKEN"]}@#{ENV["DOOR_URL"]}/api/device/CoworkBuffalo?state=blink&delay=4"
   end
 end
