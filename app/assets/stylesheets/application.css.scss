@@ -60,7 +60,7 @@ nav.actions {
 }
 
 section.members {
-  $max-width: em(544);
+  $max-width: em(600);
   @include outer-container;
 
   tr:hover {
