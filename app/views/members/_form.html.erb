@@ -21,6 +21,7 @@
   </div>
   <div class="actions">
     <%= f.submit %>
-    <%= button_to 'Remove Member', @member, method: :delete, data: { confirm: 'Are you sure?' } unless @member.new_record? %>
   </div>
 <% end %>
+
+<%= button_to 'Remove Member', @member, method: :delete, data: { confirm: 'Are you sure?' } unless @member.new_record? %>
